@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="InstallMultipleProxies" default="run" >
+
+    <property environment="env"/>
+
+    <target name="run" depends="init" description="CI Job install gen proxies into the repository">
+        <echo message="Hello from Ant" />
+        <echo message="===========================" />
+        <echo message="M2 Settings       = ${M2_SETTINGS}" />
+        <echo message="Gen Environment   = ${GEN_ENVIRONMENT}" />
+        <echo message="VAR1              = ${VAR1}" />
+        <echo message="TRIAL_BUILD       = ${TRIAL_BUILD}" />
+        <echo message="PROXY_FILE NAME   = ${PROXY_FILE}" />
+
+    </target>
+
+    <target name="init" >
+        <!-- get jenkins job properties -->
+        <property name="M2_SETTINGS" value="${env.M2_SETTINGS}"/>
+        <property name="VAR1" value="${env.VAR1}" />
+        <property name="GEN_ENVIRONMENT" value="${env.GEN_ENVIRONMENT}" />
+        <property name="TRIAL_BUILD" value="${env.TRIAL_BUILD}"/>
+        <property name="PROXY_FILE" value="${env.PROXY_FILE}"/>
+
+        <!--
+        <property name="M2_HOME" value="${env.M2_HOME}"/>
+        <property name="M2_LOCAL_REPO_LOCATION" value="${env.M2_LOCAL_REPO_LOCATION}"/>
+
+        <property name="CURL_LOCATION" value="${env.CURL_LOCATION}"/>
+        <property name="GEN_ENVIRONMENT" value="${GEN_ENVIRONMENT}"/>
+
+        -->
+    </target>
+    
+</project>
