@@ -17,7 +17,7 @@ pipeline {
                     } else {
                       //Windows Environment
                       echo 'I am Windows - trust me at your own peril'
-                      bat 'echo %JENKINS_HOME%'
+                      bat 'echo Jenkins Home Dir:  %JENKINS_HOME%'
                     }
                 }
             }
