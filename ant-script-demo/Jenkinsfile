@@ -21,7 +21,7 @@ pipeline {
     stage('run-ant-script') {
         steps {
             echo 'Build step'
-            withAnt(installation: 'ANT-1.10.13', jdk: 'OPENJDK-17') {
+            withAnt(installation: 'ANT-1.10.13', jdk: 'OPEN-JDK') {
                 withEnv(['TRIAL_BUILD=Y', "PROXY_FILE=${params.GEN_PROXY_FILE}",
                          "GEN_ENVIRONMENT=${params.GEN_ENVIRONMENT}"]) {
                     script {
