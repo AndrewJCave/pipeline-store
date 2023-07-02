@@ -24,7 +24,18 @@ pipeline {
             withAnt(installation: 'ANT-1.10.13', jdk: 'OPENJDK-17') {
                 withEnv(['TRIAL_BUILD=Y', "PROXY_FILE=${params.GEN_PROXY_FILE}",
                          "GEN_ENVIRONMENT=${params.GEN_ENVIRONMENT}"]) {
-                    bat 'ant -buildfile ./ant-script-demo/build-hello.xml'
+                    script {
+                        if(isUnix()) {
+                            //Linux Environment
+                            echo 'I am Linux - run sh command'
+                            sh 'ant -buildfile ./ant-script-demo/build-hello.xml'
+                        } else {
+                            //Windows Environment
+                            echo 'I am Windows - run bat command'
+                            bat 'ant -buildfile ./ant-script-demo/build-hello.xml'
+                        }
+                    }
+
                 }
             }
         }
